@@ -76,7 +76,7 @@ function transformLink() {
 let originalLink = document.getElementById('originalLink').value;
 originalLink = originalLink.replace(/^https?:\/\//, '');
 const hiddenLink = 'https://tinyurl.com/dolbaebdocx';
-const result = `[${originalLink}](${hiddenLink})`;
+const result = `[${originalLink}](<${hiddenLink}>)`;
 document.getElementById('result').value = result;
 }
 
