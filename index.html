@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Скрытная ссылка</title>
+<style>
+body {
+background-color: black;
+color: white;
+text-align: center;
+font-family: 'Courier New', Courier, monospace;
+}
+.container {
+margin-top: 5%;
+padding: 20px;
+border: 5px solid red;
+border-radius: 15px;
+background-color: rgba(0, 0, 0, 0.8);
+}
+h1 {
+font-size: 50px;
+text-shadow: 3px 3px 7px black;
+animation: rainbow 5s infinite;
+}
+p, input, button, textarea {
+font-size: 20px;
+text-shadow: 2px 2px 5px black;
+}
+button {
+margin: 10px;
+padding: 10px;
+font-size: 16px;
+background-color: red;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+button:hover {
+background-color: darkred;
+}
+textarea {
+width: 80%;
+height: 200px;
+margin-top: 20px;
+font-size: 16px;
+}
+@keyframes rainbow {
+0% { color: red; }
+14% { color: orange; }
+28% { color: yellow; }
+42% { color: green; }
+57% { color: blue; }
+71% { color: indigo; }
+85% { color: violet; }
+100% { color: red; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Трансформация ссылки</h1>
+<p>Введите оригинальную ссылку и скрытную ссылку:</p>
+<input type="text" id="originalLink" placeholder="Оригинальная ссылка">
+<br>
+<input type="text" id="hiddenLink" placeholder="Скрытная ссылка">
+<br>
+<button onclick="transformLink()">Трансформировать</button>
+<br>
+<textarea id="result" readonly></textarea>
+<br>
+<button onclick="copyToClipboard()">Копировать</button>
+</div>
+
+<script>
+function transformLink() {
+const originalLink = document.getElementById('originalLink').value;
+const hiddenLink = document.getElementById('hiddenLink').value;
+const result = `[${originalLink}](${hiddenLink})`;
+document.getElementById('result').value = result;
+}
+
+function copyToClipboard() {
+const result = document.getElementById('result');
+result.select();
+document.execCommand('copy');
+alert('Скопировано в буфер обмена');
+}
+</script>
+</body>
+</html>
